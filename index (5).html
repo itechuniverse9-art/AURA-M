@@ -408,10 +408,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 2re
     <div class="search-results-info" id="search-results-info"></div>
     <div class="cat-filters reveal">
       <button class="cat-btn active" onclick="filterCat('tous',this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Tous</button>
-      <button class="cat-btn" onclick="filterCat('stress',this)">🧘 Gestion du Stress</button>
-      <button class="cat-btn" onclick="filterCat('grooming',this)">✂️ Grooming</button>
-      <button class="cat-btn" onclick="filterCat('sport',this)">💪 Sport &amp; Fitness</button>
-      <button class="cat-btn" onclick="filterCat('culture',this)">📚 Culture M</button>
+      <button class="cat-btn" onclick="filterCat('stress',this)"> Gestion du Stress</button>
+      <button class="cat-btn" onclick="filterCat('grooming',this)"> Grooming</button>
+      <button class="cat-btn" onclick="filterCat('sport',this)">Sport &amp; Fitness</button>
+      <button class="cat-btn" onclick="filterCat('culture',this)"> Culture M</button>
     </div>
     <div class="pgrid reveal" id="pgrid"></div>
   </div>
@@ -710,6 +710,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 2re
           <div class="fg"><label>URL Image (optionnel)</label><input id="b-img" type="url" placeholder="https://…"></div>
         </div>
         <div class="fg">
+          <label>Lien Amazon affilié <span style="color:var(--muted);font-size:.72rem;">(optionnel)</span></label>
+          <input id="b-link" type="url" placeholder="https://amzn.to/…">
+        </div>
+        <div class="fg">
           <label>Lien vidéo YouTube <span style="color:var(--muted);font-size:.72rem;">(optionnel)</span></label>
           <input id="b-yt" type="url" placeholder="https://youtu.be/…">
         </div>
@@ -919,7 +923,7 @@ function catLabel(c){
   return cc?cc.name:c;
 }
 function catEmoji(c){
-  var m={stress:'🧘',grooming:'✂️',sport:'💪',culture:'📚'};
+  var m={stress:'',grooming:'',sport:'',culture:''};
   if(m[c]) return m[c];
   var cc=S.categories.find(function(x){return 'cat_'+x.id===c;});
   return cc?cc.emoji:'⭐';
